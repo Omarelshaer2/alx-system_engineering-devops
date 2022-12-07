@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $((BREATH ** LOVE))
+echo "$((2#$BINARY))"
