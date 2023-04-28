@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# prints the message infinity and beyon for
-# eternity unless it is killed, not so ethernal after all :)
+# Script to print a message every 2 seconds
+# until manually interrupted or terminated.
 
-while true;
+while true; # loop indefinitely
 do
-	echo "To infinity and beyond";
-	sleep 2
-done
+	echo "To infinity and beyond"; # print the message
+	sleep 2 # wait for 2 seconds
+done # end of loop
