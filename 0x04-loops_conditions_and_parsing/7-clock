@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script displays the time in a 12-hour format with minutes ranging from 0 to 59
+
+hour=1
+while [ $hour -le 12 ]  # loop through hours 1 to 12 (inclusive)
+do
+    echo "Current Hour: $hour"
+    minute=0
+    while [ $minute -le 59 ]  # loop through minutes 0 to 59 (inclusive)
+    do
+        echo "Current Minute: $minute"
+        ((minute++))
+    done
+    ((hour++))
+done
