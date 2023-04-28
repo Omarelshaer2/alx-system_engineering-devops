@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# This script displays numbers from 1 to 20 with "bad luck" messages for certain values.
+
+# Initialize a counter variable to start at 1.
+counter=1
+
+# Loop through numbers 1 to 20 and display them with any corresponding "bad luck" messages.
+while [ $counter -le 20 ]
+do
+    # Use a case statement to check if the counter matches a specific value.
+    case $counter in
+        # If the counter is 4, display a "bad luck" message from China.
+        "4")
+            echo "$counter"
+            echo "Unlucky number in China"
+            ;;
+        # If the counter is 9, display a "bad luck" message from Japan.
+        "9")
+            echo "$counter"
+            echo "Unlucky number in Japan"
+            ;;
+        # If the counter is 17, display a "bad luck" message from Italy.
+        "17")
+            echo "$counter"
+            echo "Unlucky number in Italy"
+            ;;
+        # For all other values of the counter, simply display the number.
+        *)
+            echo "$counter"
+            ;;
+    esac
+
+    # Increment the counter variable by 1 after each iteration.
+    ((counter++))
+done
