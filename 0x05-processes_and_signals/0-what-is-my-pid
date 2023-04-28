@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
-# Displays its own process ID.
 
-echo $$
+# Print the process ID (PID) of the current process.
+# The PID is a unique identifier assigned by the operating system.
+
+echo $$ # Output the PID to the standard output.
