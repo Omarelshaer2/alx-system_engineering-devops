@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This Bash script uses a loop to output "Best School" 10 times.
+
+# Set the counter variable to zero
+counter=0
+
+# Repeat until the counter reaches 10
+until [ $counter == 10 ]
+do
+    # Print "Best School" to the console
+    echo "Best School"
+
+    # Increment the counter by 1
+    ((counter++))
+done
