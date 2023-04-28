@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Summarizes an Apache access log by counting the most common IP addresses and HTTP status codes.
+# Extracts relevant fields using awk, then sorts and counts unique combinations.
+# Displays results in descending order of frequency.
+awk '{ print $1, $9 }' apache-access.log | sort | uniq -c | sort -nr
