@@ -1,0 +1,12 @@
+# Initialize counter to 1
+counter=1
+
+# Loop 10 times
+while [ $counter -le 10 ]
+do
+    # Print a message
+    echo "Best School"
+
+    # Increment counter by 1
+    ((counter++))
+done
