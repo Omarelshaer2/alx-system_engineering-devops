@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Initialize counter to 1
+counter=1
+
+# Repeat 10 times and print "Best School"
+while [ $counter -le 10 ]
+do
+    echo "Best School"
+    
+    # Print "Hi" on the 9th repetition
+    if [[ "$counter" == '9' ]]
+    then
+        echo "Hi"
+    fi
+    
+    # Increment the counter for next repetition
+    ((counter++))
+done
