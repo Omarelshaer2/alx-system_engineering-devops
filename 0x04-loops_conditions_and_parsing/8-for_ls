@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Script: list_dash_files.sh
+# Description: List files in the current directory with names
+# containing a dash (-), displaying only the part of the name
+# after the dash
+
+for file in *
+do
+    # Extract the part of the file name after the dash
+    # and display it on the console
+    echo "$(echo "$file" | cut -f 2 -d '-')"
+done
