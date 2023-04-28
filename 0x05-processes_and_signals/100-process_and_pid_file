@@ -1,25 +1,27 @@
 #!/usr/bin/env bash
-# Creates the file /var/run/myscript.pid containing its PID
-# Displays To infinity and beyond indefinitely
-# Displays I hate the kill command when receiving a SIGTERM signal
-# Displays Y U no love me?! when receiving a SIGINT signal
-# Deletes the file /var/run/myscript.pid and terminates itself
-# when receiving a SIGQUIT or SIGTERM signal
-
+# Create a PID file for the script
+# Print a message repeatedly
+# Print a message when receiving a SIGINT signal
+# Print a message and terminate the script when receiving a SIGTERM signal
+# Terminate the script when receiving a SIGQUIT signal and remove the PID file
 
 echo "$$" > /var/run/myscript.pid
 
+# Define a function to remove the PID file and exit
 termfunc() {
-	rm /var/run/myscript.pid
-	exit
+    rm /var/run/myscript.pid
+    exit
 }
 
-
+# Loop indefinitely
 while true
 do
-	echo "To infinity and beyond"
-	sleep 2
-	trap 'echo "Y U no love me?!"' SIGINT
-	trap 'echo "I hate the kill command" && termfunc' SIGTERM
-	trap 'termfunc' SIGQUIT
+    echo "To infinity and beyond"
+    sleep 2
+    # Print a message when receiving a SIGINT signal
+    trap 'echo "Y U no love me?!"' SIGINT
+    # Print a message and terminate the script when receiving a SIGTERM signal
+    trap 'echo "I hate the kill command" && termfunc' SIGTERM
+    # Terminate the script when receiving a SIGQUIT signal and remove the PID file
+    trap 'termfunc' SIGQUIT
 done
