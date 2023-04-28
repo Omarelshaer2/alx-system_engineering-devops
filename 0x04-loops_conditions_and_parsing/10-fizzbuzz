@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# This script prints numbers from 1 to 100, replacing multiples of 3 with "Fizz", multiples of 5 with "Buzz", and multiples of both with "FizzBuzz".
+
+for number in {1..100} # loop through numbers from 1 to 100
+do
+    if [ $((number % 3)) == 0 ] && [ $((number % 5)) == 0 ]
+    then
+        echo "FizzBuzz" # print "FizzBuzz" if number is a multiple of both 3 and 5
+    elif [ $((number % 5)) == 0 ]
+    then
+        echo "Buzz" # print "Buzz" if number is a multiple of 5 only
+    elif [ $((number % 3)) == 0 ]
+    then
+        echo "Fizz" # print "Fizz" if number is a multiple of 3 only
+    else
+        echo "$number" # print the number itself for other numbers
+    fi
+done
