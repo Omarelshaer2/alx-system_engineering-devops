@@ -1,0 +1,23 @@
+# Check if the file 'school' exists
+FILE="school"
+if [[ -e "$FILE" ]]
+then
+    # Print a message indicating the existence of the file
+    echo "The file '$FILE' exists"
+    if [ -s "$FILE" ]
+    then
+        # Print a message indicating the file is not empty
+        echo "The file '$FILE' is not empty"
+    else
+        # Print a message indicating the file is empty
+        echo "The file '$FILE' is empty"
+    fi
+    if [ -f "$FILE" ]
+    then
+        # Print a message indicating the file is a regular file
+        echo "The file '$FILE' is a regular file"
+    fi
+else
+    # Print a message indicating the file does not exist
+    echo "The file '$FILE' does not exist"
+fi
