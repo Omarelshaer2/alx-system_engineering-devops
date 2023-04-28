@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Use awk to extract IP address and HTTP status code from Apache access log.
-# Print the first (IP address) and ninth (HTTP status code) columns of the log file.
-awk '{ print $1, $9}' apache-access.log
+# Displays the IP and status code of an Apache log file
+
+awk '{ printf "%s %s\n", $1, $9 }' "apache-access.log"
