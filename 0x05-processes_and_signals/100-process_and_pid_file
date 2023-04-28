@@ -1,27 +1,22 @@
 #!/usr/bin/env bash
-# Create a PID file for the script
-# Print a message repeatedly
-# Print a message when receiving a SIGINT signal
-# Print a message and terminate the script when receiving a SIGTERM signal
-# Terminate the script when receiving a SIGQUIT signal and remove the PID file
+# This script reads and displays user information from the /etc/passwd file 
+# with a unique story for each user.
 
-echo "$$" > /var/run/myscript.pid
-
-# Define a function to remove the PID file and exit
-termfunc() {
-    rm /var/run/myscript.pid
-    exit
-}
-
-# Loop indefinitely
-while true
+while IFS=: read -r user_info
 do
-    echo "To infinity and beyond"
-    sleep 2
-    # Print a message when receiving a SIGINT signal
-    trap 'echo "Y U no love me?!"' SIGINT
-    # Print a message and terminate the script when receiving a SIGTERM signal
-    trap 'echo "I hate the kill command" && termfunc' SIGTERM
-    # Terminate the script when receiving a SIGQUIT signal and remove the PID file
-    trap 'termfunc' SIGQUIT
-done
+    # Extract each field from the user_info using the delimiter ':'
+    USERNAME=$(echo "$user_info" | cut -f 1 -d ':')
+    PASSWORD=$(echo "$user_info" | cut -f 2 -d ':')
+    USER_ID=$(echo "$user_info" | cut -f 3 -d ':')
+    GROUP_ID=$(echo "$user_info" | cut -f 4 -d ':')
+    USER_INFO=$(echo "$user_info" | cut -f 5 -d ':')
+    HOME_DIR=$(echo "$user_info" | cut -f 6 -d ':')
+    COMMAND=$(echo "$user_info" | cut -f 7 -d ':')
+
+    # Display the user information with a unique story
+    echo -n "User $USERNAME belongs to $GROUP_ID, "
+    echo -n "lives in $HOME_DIR, and rides $COMMAND. "
+    echo -n "Their password is $PASSWORD, "
+    echo "and $USER_INFO contains more information."
+
+done < "/etc/passwd"
