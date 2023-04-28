@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script prints "Best School" ten times using a for loop.
+
+for _ in {1..10}  # Iterate 10 times
+do
+    echo "Best School"  # Display "Best School" for each iteration
+done
