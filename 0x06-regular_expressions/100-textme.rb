@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# Textme
+# lets chat together
 puts ARGV[0]
        .scan(/(?<=from:|to:|flags:).*?(?=\])/)
        .join(',')
