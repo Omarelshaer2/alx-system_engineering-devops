@@ -1,4 +1,4 @@
-# Puppet manifests that create a file in /tmp
+# Puppet code creates a file in /tmp
 file { '/tmp/school':
     ensure  => file,
     mode    => '0744',
