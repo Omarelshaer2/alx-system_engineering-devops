@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Script should run the whoami then user.
-sudo apt-get update
+sudo apt-get update -y
+sudo apt-get install nginx
 service nginx start
 sudo -u "$1" whoami
