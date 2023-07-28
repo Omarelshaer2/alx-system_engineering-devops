@@ -1,7 +1,25 @@
 #!/usr/bin/env bash
+# install nginx.
+sudo apt-get update -y
+sudo apt-get install nginx -y
+sudo ufw m'Nginx HTTP'
+
+# config nginx.
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+echo "Hello World!" > /var/www/html/index.html
+# fix server, if it's not listening in port 80
+sudo sed -i 's/listen 8080 default_server;.*/listen 80 default_server;/' /etc/nginx/sites-enabled/default
+sudo sed -i 's/listen \[::\]:8080 default_server ipv6only=on;.*/listen \[::\]:80 default_server;/' /etc/nginx/sites-enabled/default
+
+# This script is configureing redirect
+new_page="https://www.facebook.com/yas4ads"
+file="/etc/nginx/sites-available/default"
+sudo sed -i "/listen 80 default_server/a rewrite ^/redirect_me $new_page permanent;" $file
+# string Ceci n'est pas une page
+sudo echo "Ceci n'est pas une page" > /usr/share/nginx/html/page_error_404.html
+sudo sed -i '37i error_page 404 /page_error_404.html;\nlocation = /page_error_404.html {\nroot /usr/share/nginx/html; \ninternal;\n}\n' /etc/nginx/sites-enabled/default
 # custom http response  header
 sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
-
 # test syntax erors
 sudo nginx -t
 sudo service nginx restart
