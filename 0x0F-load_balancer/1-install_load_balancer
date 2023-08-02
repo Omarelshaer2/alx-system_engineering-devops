@@ -3,6 +3,5 @@
 sudo apt-get update -y
 sudo apt install haproxy -y
 variables="\tbind :80\n\tmode http\n\tdefault_backend servers\nbackend servers\n\tbalance roundrobin\n\tserver 186857-web-01 34.204.61.214:80 check\n\tserver 186857-web-02 18.206.202.174:80 check"
-sudo echo "frontend yas-adv.tech" >> etc/haproxy/haproxy.cfg
-sudo sed -i "/frontend yas-adv.tech/a $variables" /etc/haproxy/haproxy.cfg
+sudo echo "\n\tfrontend yas-adv.tech\n\t$variables" >> etc/haproxy/haproxy.cfg
 sudo service haproxy restart
