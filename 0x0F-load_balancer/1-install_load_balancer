@@ -8,3 +8,5 @@ variables="\tbind :80\n\tmode http\n\tdefault_backend servers\nbackend servers\n
 sudo sed -i "/errorfile 504/a frontend yas-adv.tech" /etc/haproxy/haproxy.cfg
 sudo sed -i "/frontend yas-adv.tech/a $variables" /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
+curl -Is 100.26.214.108
+curl -Is 100.26.214.108
