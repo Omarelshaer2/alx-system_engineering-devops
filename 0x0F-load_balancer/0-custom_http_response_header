@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 # install nginx.
-sudo apt-get install curl
-curl -I 34.204.61.214
-curl -I 18.206.202.174
+sudo apt-get update -y
+sudo apt-get install nginx -y
+sudo ufw m'Nginx HTTP'
+
+# config nginx.
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+echo "Hello World!" > /var/www/html/index.html
+
+# fix server, if it's not listening in port 80
+sudo sed -i 's/listen 8080 default_server;.*/listen 80 default_server;/' /etc/nginx/sites-enabled/default
+sudo sed -i 's/listen \[::\]:8080 default_server ipv6only=on;.*/listen \[::\]:80 default_server;/' /etc/nginx/sites-enabled/default
+
+# custom http response  header
+sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+sudo service nginx restart
