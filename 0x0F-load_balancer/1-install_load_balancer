@@ -5,7 +5,7 @@ sudo apt-get update -y
 sudo apt install haproxy -y
 
 variables="\n\tbind 0:80\n\tdefault_backend servers\nbackend servers\n\tbalance roundrobin\n\tserver 186857-web-01 34.204.61.214:80 check\n\tserver 186857-web-02 18.206.202.174:80 check"
-
+escaped_variables=$(printf "%q" "$variables")
 sudo sed -i "/errorfile 504/a frontend yas-adv.tech" /etc/haproxy/haproxy.cfg
-sudo sed -i "/frontend yas-adv.tech/a $variables" /etc/haproxy/haproxy.cfg
+sudo sed -i "/frontend yas-adv.tech/a $escaped_variables" /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
