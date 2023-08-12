@@ -1,16 +1,8 @@
-# 0x19 Postmortem - WordPress Failure (incident #47)
-
-:fire::fire::fire::fire::fire::fire::fire::fire::fire::fire::fire::fire:
-![IsItDown Logo](https://github.com/sazad44/holberton-system_engineering-devops/blob/master/0x19-postmortem/isitdownlogo?raw=true) 
-:fire::fire::fire::fire::fire::fire::fire::fire::fire::fire::fire:
+# 0x19 Postmortem - WordPress Failure
 
 ## Date and Duration of Outage
 
-2019-05-25 / 5:00 PM - 6:15 PM
-
-## Authors
-
-* samie
+2020-05-25 / 5:00 PM - 6:15 PM
 
 ## Status
 
