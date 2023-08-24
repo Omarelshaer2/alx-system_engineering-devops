@@ -15,4 +15,7 @@
    ### 0x03. Shell, init files, variables and expansions
       Training session specialized on expansion commands : alias, $USER, $PATH, printenv, set, export, local ...
 
-   #### Projects are authored by Julien Barbier
+
+### Author
+
+* **omar elshaer** <[omarelshaer2](https://github.com/omarelshaer2)>
